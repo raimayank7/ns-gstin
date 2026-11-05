@@ -51,3 +51,24 @@
 .hs-pick small{grid-column:2;color:var(--soft);font-size:.8rem}
 .hs-cell{min-height:36px;padding:4px 8px;width:9.5em;font-size:.95rem}
 .hs-rate{width:5em}
+/* price list */
+.prl-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}
+.prl-edit .prl-n{width:6.5em}
+.prl-paper{background:#fff;color:#111;overflow-x:auto}
+.prl-paper .dt{font-size:1.3rem;font-weight:700;margin:0}
+.prl-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:8px;font-size:.9rem;line-height:1.35}
+.prl-biz{font-size:1.05rem}
+.prl-ttl{text-align:end}.prl-ttl span{display:block;font-size:.85rem;color:#444}
+.prl-tbl{border-collapse:collapse;width:100%;font-size:.88rem;font-variant-numeric:tabular-nums}
+.prl-tbl th,.prl-tbl td{border:1px solid #bbb;padding:4px 6px;text-align:left;color:#111}
+.prl-tbl th{background:#f1f5f9}
+.prl-tbl .r{text-align:right}.prl-tbl .n{width:2.2em;text-align:right;color:#555}
+.prl-grp td{background:#f8fafc;font-weight:700}
+.prl-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.78rem;color:#444;margin:8px 0 0}
+.prl-paper [dir=rtl],.prl-paper{direction:ltr}
+@media print{
+  body:has(#price-list-tool) .hero,body:has(#price-list-tool) .crumbs{display:none!important}
+  .prl-paper{padding:0!important;overflow:visible}
+  .prl-tbl th,.prl-grp td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .prl-tbl tr{break-inside:avoid}
+}
