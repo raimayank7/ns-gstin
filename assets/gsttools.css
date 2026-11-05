@@ -41,3 +41,13 @@
   .gt-grid{display:block}
   .gt-boxes span{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+/* hsn finder */
+.fg2{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:flex-end;margin:6px 0}
+.fg2 select{width:auto;max-width:100%}
+.chk{display:flex;align-items:center;gap:8px;min-height:44px;font-size:.92rem}
+.hs-list{list-style:none;padding:0;margin:10px 0;display:grid;gap:6px}
+.hs-pick{width:100%;text-align:start;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);font:inherit;cursor:pointer;min-height:44px}
+.hs-pick:hover{border-color:var(--accent)}
+.hs-pick small{grid-column:2;color:var(--soft);font-size:.8rem}
+.hs-cell{min-height:36px;padding:4px 8px;width:9.5em;font-size:.95rem}
+.hs-rate{width:5em}
