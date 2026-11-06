@@ -21,7 +21,7 @@
 
   function stateOf(code) {
     if (code === '25') return t('gi.st25');
-    return NS.stateName(code);
+    return NS.stateLoc ? NS.stateLoc(code) : NS.stateName(code);
   }
 
   /* everything we can tell from the number itself */
@@ -132,6 +132,8 @@
         '<div class="row"><button type="button" class="btn primary" data-role="customer">' + esc(t('gi.savec')) + '</button><button type="button" class="btn" data-role="supplier">' + esc(t('gi.saves')) + '</button></div>';
       NS.$$('[data-role]', box).forEach(function (b) { b.onclick = function () { savePortal(d, b.getAttribute('data-role')); }; });
       box.scrollIntoView({ block: 'nearest' });
+      /* "Use these details" closed without a word: now it says what to do next and puts the cursor on Save (round C) */
+      NS.toast(t('gi.pickh')); var sb = NS.$('[data-role=customer]', box); if (sb) sb.focus({ preventScroll: true });
     });
   }
 
@@ -209,6 +211,8 @@
       '<section class="gt-card gt-noprint" aria-labelledby="gi-h3"><h2 id="gi-h3">' + esc(t('gi.h.saved')) + '</h2><div data-gi-saved><div class="shim" style="height:80px"></div></div></section>';
     var inp = $('#gi-in', root);
     inp.addEventListener('input', showOne);
+    /* the box shows the GSTIN as it is checked: capitals, no spaces (round C) */
+    inp.addEventListener('change', function () { var v = inp.value.toUpperCase().replace(/[\s-]/g, ''); if (v.length === 15 && v !== inp.value) { inp.value = v; showOne(); } });
     root.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
       if (b.hasAttribute('data-g')) { inp.value = b.getAttribute('data-g'); showOne(); return; }
